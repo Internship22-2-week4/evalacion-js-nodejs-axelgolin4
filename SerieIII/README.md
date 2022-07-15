@@ -11,8 +11,11 @@ album, Usuario y Fotos, con el Crud de cada uno
 
 ![img1](./asserts/a1.PNG)
 
-## Ejemplo de un GET
+## Ejemplo de un GET de Imagen
 ![img3](./asserts/a2.PNG)
 
-## Ejemplo de un POST
+## Ejemplo de un POST De Imagen
 ![img4](./asserts/a3.PNG)
+
+## Ejemplo de un POST De Usuario
+![img4](./asserts/a4.PNG)
