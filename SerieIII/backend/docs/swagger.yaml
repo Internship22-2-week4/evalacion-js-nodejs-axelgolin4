@@ -1,0 +1,296 @@
+openapi: 3.0.0
+info:
+  title: Unsplash-image
+  description: 'Esta es una plataforma de fotos donde puedes publicar tus fotos y clasificarlas por album'
+  contact:
+    email: axelgolin4@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://apache.com
+  version: 1.0.0
+servers:
+- url: http://localhost:4000/api/v1
+tags:
+
+- name: User
+  description: Usuarios de la plataforma
+- name: Album
+  description: Son todos los album de nuestra plataforma
+- name: Photo
+  description: Son todos las photos de nuestra plataforma
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    Album:
+      type: object
+      properties:
+        id: 
+          type: integer
+          format: int64
+        name:
+          type: string
+        date:
+          type: string
+        cover:
+          type: string   
+    Photo:
+      type: object
+      properties:
+        id: 
+          type: integer
+          format: int64
+        name:
+          type: string
+        date:
+          type: string
+        uri:
+          type: string
+        tag:
+          type: string    
+paths:
+  /user/singup:
+    post:
+      tags:
+      - User
+      summary: crear un usuario
+      operantionId: createUser
+      description: Se creara un usuario para  utilizarlo en la apliacion.
+      requestBody:
+        description: ingrese los datos del usuario a crear.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        200:
+          description: registro exitoso!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description: not found
+          content: {}
+    x-codegen-request-body-name: body
+  /Album:
+    post:
+      tags:
+      - Album
+      summary: Crea un nuevo album
+      operationId: createNewAlbum
+      description: Se creaun los nuevos album con fotos.
+      requestBody:
+        description: Ingrese los datos del Album a registrar.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Album'
+        required: true
+      responses: 
+        200: 
+          description: Registro exitoso
+          content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/Album'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    x-codegen-request-body-name: body
+    get:
+      tags:
+      - Album
+      summary: Obtiene todas los Album publicados
+      operationId: getAllAlbum
+      description: Se obtienen todas los Album publicadas
+      responses:
+        200:
+          description: Obtencion de los Album con exito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    delete:
+      tags:
+      - Album
+      summary: Eliminar una Album.
+      operationId: deleteAlbum
+      description: Se elimina una Album.
+      requestBody:
+        description: Ingrese la Album que se eliminara.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Album'
+        required: true
+      responses: 
+        200: 
+          description: Registro exitoso
+          content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/Album'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    x-codegen-request-body-name: body
+    put:
+      tags:
+      - Album
+      summary: Editar una Album.
+      operationId: updateAlbum
+      description: Se editara una Album.
+      requestBody:
+        description: Ingrese la Album que se editara.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Album'
+        required: true
+      responses: 
+        200: 
+          description: Registro exitoso
+          content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/Album'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    x-codegen-request-body-name: body
+  /Photo:
+    post:
+      tags:
+      - Photo
+      summary: Crea un nuevo photo
+      operationId: createNewPhoto
+      description: Se creaun los nuevos photo con fotos.
+      requestBody:
+        description: Ingrese los datos del Photo a registrar.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Photo'
+        required: true
+      responses: 
+        200: 
+          description: Registro exitoso
+          content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/Photo'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    x-codegen-request-body-name: body
+    get:
+      tags:
+      - Photo
+      summary: Obtiene todas los Photo publicados
+      operationId: getAllPhoto
+      description: Se obtienen todas los Photo publicadas
+      responses:
+        200:
+          description: Obtencion de los Photo con exito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    delete:
+      tags:
+      - Photo
+      summary: Eliminar una Photo.
+      operationId: deletePhoto
+      description: Se elimina una Photo.
+      requestBody:
+        description: Ingrese la Photo que se eliminara.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Photo'
+        required: true
+      responses: 
+        200: 
+          description: Registro exitoso
+          content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/Photo'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    x-codegen-request-body-name: body
+    put:
+      tags:
+      - Photo
+      summary: Editar una Photo.
+      operationId: updatePhoto
+      description: Se editara una Photo.
+      requestBody:
+        description: Ingrese la Photo que se editara.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Photo'
+        required: true
+      responses: 
+        200: 
+          description: Registro exitoso
+          content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/Photo'
+        400:
+          description: bad request
+          content: {}
+        404:
+          description:  Not found
+          content: {}
+    x-codegen-request-body-name: body
+  
+ 
