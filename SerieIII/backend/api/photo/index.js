@@ -1,5 +1,5 @@
 import expres from 'express'
-import PhotoRouter from './Router.js'
+import PhotoRouter from './Routes.js'
 import PhotoController from './Controller.js'
 import { response } from '../../response/response.js'
 import { HttpCode } from '../../response/httpcode.js'

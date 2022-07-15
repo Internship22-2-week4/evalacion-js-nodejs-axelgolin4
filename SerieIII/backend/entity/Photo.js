@@ -4,7 +4,7 @@ export default class Photo {
     this._name = photo.name
     this._date = photo.date
     this._uri = photo.uri
-    this.tag = photo.tag
+    this._tag = photo.tag
   }
 
   setId (id) {

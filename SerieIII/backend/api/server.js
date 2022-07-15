@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
 import { AlbumModule } from './album/index.js'
+import { PhotoModule } from './photo/index.js'
 import { userModule } from './user/index.js'
 import { authModule } from './auth/index.js'
 
@@ -38,6 +39,7 @@ class Server {
   setRoutes () {
     this._app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(this._swaggerFile))
     this._app.use('/api/v1/album', AlbumModule())
+    this._app.use('/api/v1/photo', PhotoModule())
     this._app.use('/api/v1/user', userModule(express.Router))
     this._app.use('/api/v1/auth', authModule(express.Router))
   }

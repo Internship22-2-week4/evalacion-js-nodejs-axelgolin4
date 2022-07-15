@@ -40,13 +40,13 @@ function getCoins(coin) {
 
     }
 
-    console.log(coins[0] + " monedas de 1 centimo")
-    console.log(coins[1] + " monedas de 2 centimos")
-    console.log(coins[2] + " monedas de 5 centimos")
-    console.log(coins[3] + " monedas de 10 centimos")
-    console.log(coins[4] + " monedas de 20 centimos")
-    console.log(coins[5] + " monedas de 50 centimos")
-    console.log("------------------")
+    // console.log(coins[0] + " monedas de 1 centimo")
+    // console.log(coins[1] + " monedas de 2 centimos")
+    // console.log(coins[2] + " monedas de 5 centimos")
+    // console.log(coins[3] + " monedas de 10 centimos")
+    // console.log(coins[4] + " monedas de 20 centimos")
+    // console.log(coins[5] + " monedas de 50 centimos")
+    // console.log("------------------")
     console.log(coins)
     console.log(" ")
 }
